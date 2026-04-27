@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Strength Checker</title>
+<style>
+body {margin:0;font-family:'Courier New';height:100vh;display:flex;justify-content:center;align-items:center;
+background: linear-gradient(-45deg,#ff00cc,#3333ff,#00ffcc,#ff6600);background-size:400% 400%;animation:bgMove 8s infinite alternate;}
+.container{background:rgba(0,0,0,0.85);padding:40px;border-radius:20px;text-align:center;box-shadow:0 0 40px #00ffcc;}
+h1{color:#00ffcc}
+input{padding:10px;width:250px}
+p{color:#00ffcc}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Password Strength</h1>
+
+<form action="/check_strength" method="POST">
+<input type="password" name="password" placeholder="Enter password"><br><br>
+<button type="submit">Check</button>
+</form>
+
+{% if result %}
+<p>💪 {{result}}</p>
+{% endif %}
+
+<button onclick="location.href='/'">Back</button>
+
+</div>
+
+</body>
+</html>

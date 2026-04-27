@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>View</title>
+<style>
+body {margin:0;font-family:'Courier New';height:100vh;display:flex;justify-content:center;align-items:center;
+background: linear-gradient(-45deg,#ff00cc,#3333ff,#00ffcc,#ff6600);background-size:400% 400%;animation:bgMove 8s infinite alternate;}
+@keyframes bgMove {0%{background-position:0%}100%{background-position:100%}}
+.container{background:rgba(0,0,0,0.85);padding:40px;border-radius:20px;text-align:center;box-shadow:0 0 40px #00ffcc;}
+h1{color:#00ffcc}
+p{color:#00ffcc}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Stored Passwords</h1>
+
+{% for u,p in data %}
+<p>👤 {{u}} → 🔑 {{p}}</p>
+{% endfor %}
+
+<button onclick="location.href='/'">Back</button>
+
+</div>
+
+</body>
+</html>
+<form action="/change_pin" method="POST">
+    <input type="password" name="new_pin" placeholder="New PIN" required>
+    <button type="submit">Change PIN</button>
+</form>
+
+<br>
+<button onclick="location.href='/logout'">Logout</button>
